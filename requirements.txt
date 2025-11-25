@@ -1,0 +1,70 @@
+# ========================================
+# NutriDiscrete-NLP - Requirements
+# Pipeline NLP: Zero-Shot/BART + GPU Acceleration
+# ========================================
+
+# --- Core Dependencies ---
+torch>=2.0.0,<3.0.0                    # Deep learning framework with GPU support
+transformers>=4.30.0,<5.0.0            # HuggingFace transformers (BART, Zero-Shot)
+numpy>=1.24.0                          # Numerical computing
+nltk>=3.8.1                            # Natural Language Toolkit
+
+# --- Data Processing ---
+tqdm>=4.65.0                           # Progress bars for data processing
+
+# --- ML/AI Utilities ---
+scikit-learn>=1.3.0                    # Machine learning utilities (PCA, metrics)
+tensorflow>=2.12.0                     # Deep learning framework (optional, for borrar.py)
+
+# --- Visualization ---
+matplotlib>=3.7.0                      # Plotting library
+
+# --- Utilities ---
+certifi>=2023.7.22                     # SSL certificates
+charset-normalizer>=3.0.0              # Character encoding
+requests>=2.31.0                       # HTTP library
+filelock>=3.12.0                       # File locking
+
+# --- HuggingFace Hub Dependencies ---
+huggingface-hub>=0.16.0                # Download models from Hub
+safetensors>=0.3.1                     # Secure tensor serialization
+
+# --- Optional: For CUDA Support (uncomment if needed) ---
+# torch-cuda-runtime>=12.1.0
+
+# ========================================
+# Installation Instructions:
+# ========================================
+# 1. Create virtual environment:
+#    python -m venv env
+#
+# 2. Activate virtual environment:
+#    - Windows: env\Scripts\activate
+#    - Linux/Mac: source env/bin/activate
+#
+# 3. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 4. For GPU support (NVIDIA CUDA 12.1):
+#    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+#
+# ========================================
+# Project Structure:
+# ========================================
+# main.py                          - Main NLP classification pipeline (GPU-accelerated)
+# borrar.py                        - Siamese network matching model (TensorFlow-based)
+# Datos/
+#   ├── nutricion_1000_fuentes.json        - Input: 1000+ nutrition sources
+#   ├── nutricion_procesada_gpu.json       - Output: Classified documents with topics
+#   └── informe_procesamiento.md           - Report: Statistics and word frequencies
+#
+# ========================================
+# Key Features:
+# ========================================
+# - Zero-Shot Classification (facebook/bart-large-mnli)
+# - GPU acceleration with PyTorch (batch_size=16)
+# - 5 topic categories: nutrition, longevity, health, strength, mobility
+# - Stop-words filtering and tokenization
+# - Semantic word frequency analysis
+# - Confidence scoring for classifications
+# - Markdown report generation
